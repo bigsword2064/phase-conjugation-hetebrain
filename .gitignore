@@ -1,0 +1,19 @@
+# Input data (subject-specific MRE/MRI scans and derived meshes - not published)
+*.nii
+*.nii.gz
+*.msh
+input/
+
+# Simulation outputs
+results_*/
+*.bp/
+*.xdmf
+*.h5
+*.npy
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor/OS
+.DS_Store
