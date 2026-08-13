@@ -1,4 +1,4 @@
-# Phase-conjugation focusing in heterogeneous brain model with FEniCSx
+# Modeling transcranial ultrasound waves in heterogeneous brain
 
 FEniCSx/dolfinx pipeline for simulating elastic wave focusing in a
 heterogeneous head model built from the
@@ -21,14 +21,17 @@ gray matter to create a heterogeneous bulk modulus field.
 2. **`cube_hete_mre.py`** — reads subject MRE stiffness/damping NIfTI volumes
    (`MRE134_Stiffness3D.nii`, `MRE134_Damping3D.nii`), re-orients them into
    the head mesh's world coordinates, and interpolates a storage-modulus
-   field onto a regular box mesh. Writes `storage_field_affine_rotated.bp`.
+   field onto a regular box mesh. Writes `storage_field_affine_rotated.bp`
+   using [adios4dolfinx](https://github.com/jorgensd/adios4dolfinx).
 
 3. **`mida_hete_deep_first.py`** — forward MRE simulation: solves the
    mixed displacement/pressure harmonic wave equation on the full head mesh
    with a Gaussian point source, using per-tissue
    material properties plus the MRE-derived heterogeneity in WM/GM from step
    2. Saves displacement/pressure solution vectors and writes result fields
-   (XDMF/VTX) to `results_hete_deep_0.96/`.
+   (XDMF/VTX) to `results_hete_deep_0.96/`. Built on
+   [FEniCSx/dolfinx](https://github.com/FEniCS/dolfinx) for the finite-element
+   assembly and solve.
 
 4. **`mida_hete_deep_sec.py`** — phase-conjugation (time-reversal)
    step: rebuilds the same material fields, then re-solves with a
@@ -58,3 +61,5 @@ repository — see [Sources](#sources) below for where to get them.
 - CGAL: https://github.com/cgal/cgal
 - MRE data: https://github.com/mechneurolab/mre134
 - Gmsh: https://gmsh.info/
+- FEniCSx/dolfinx: https://github.com/FEniCS/dolfinx
+- adios4dolfinx: https://github.com/jorgensd/adios4dolfinx
