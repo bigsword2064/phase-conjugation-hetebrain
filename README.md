@@ -24,7 +24,7 @@ gray matter to create a heterogeneous bulk modulus field.
    field onto a regular box mesh. Writes `storage_field_affine_rotated.bp`
    using [adios4dolfinx](https://github.com/jorgensd/adios4dolfinx).
 
-3. **`mida_hete_deep_first.py`** — forward MRE simulation: solves the
+3. **`mida_hete_deep_first.py`** — forward simulation: solves the
    mixed displacement/pressure harmonic wave equation on the full head mesh
    with a Gaussian point source, using per-tissue
    material properties plus the MRE-derived heterogeneity in WM/GM from step
